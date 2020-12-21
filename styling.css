@@ -1,0 +1,66 @@
+body {
+    width: 70%;
+    margin: 15%;
+    font-family: courier;
+    text-align:center;
+}
+canvas {
+    background-color: white;
+    display: block;
+}
+
+.lightMode {
+    color: black;
+    background-color: white;
+}
+.darkMode {
+    color: white;
+    background-color: black;
+}
+
+
+#LAP {
+    height: 100000000 px;
+}
+
+#LAPStartGame {
+    display: block;
+}
+
+#canvas1 {
+    /*border:1px solid #000000;*/
+}
+
+#level {
+    max-width:506px;
+    background-color:rgb(194, 69, 11);
+    color:rgb(255, 255, 255);
+    font-size:150%;
+    text-align:center;
+}
+#info {
+    max-width:506px; 
+    background-color:rgb(194, 69, 11); 
+    color:rgb(255, 255, 255); 
+    font-size:120%;
+    text-align:center;
+}
+
+#gameExplanation {
+    position: absolute;
+    width: 300px;
+    margin-top: -0px;
+    margin-left: 15%;
+    left: 510px;
+    /*border: 1px solid rgb(194, 69, 11);*/
+    padding: 10px;
+    line-height: 18.40px;
+}
+#LAPGameDownButtons {
+    width: 504;
+    position: relative;
+    text-align: left;
+
+}
+
+

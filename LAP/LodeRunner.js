@@ -10,7 +10,8 @@ Autores: Gonçalo Lourenço (55780), Joana Faria (55754)
 let animation;// to clear the SetInterval
 let empty, hero, control, gameInfo;
 
-let rooling;
+//Posterior ao trabalho
+let canvas, rooling;
 
 //Constants - Walking types
 const ASCENDABLE = 4;
@@ -785,7 +786,12 @@ class GameControl {
 		this.key = 0;
 		this.time = 0;
 		gameInfo = new GameInfo();
-		this.ctx = document.getElementById("canvas1").getContext("2d");
+		this.canvas = document.getElementById("canvas1");
+		this.ctx = this.canvas.getContext("2d");
+		//BACKGROUNDCOLOR
+		this.ctx.fillStyle = "white";
+		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
 		empty = new Empty();	// only one empty actor needed
 		this.world = this.createMatrix();
 		this.worldActive = this.createMatrix();
@@ -875,6 +881,7 @@ class GameControl {
 
 
 function reset(level) {
+	//this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 	control.key = 0;
 	gameInfo.currentLevel = level;
 	gameInfo.totalLevelGold = 0;
