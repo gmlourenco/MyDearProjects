@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Software Engineering student's Projects/contacts</title>
+    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="SendEmail.css">
+    <script TYPE="text/javascript" src="boxes.js"></script>
+
+</head>
+
+<body class="lightMode">
+    <div class="header">
+        <input type="button" value="Contact" size="10" onclick="location.href='SendEmail.html'">
+        <div id="darkModeCheckbox">
+            <input type="checkbox" id="light_dark" onclick="changeTheme()">
+            <span id="colorMode">lightMode enabled</span>
+        </div>
+    </div>
+    <div>
+
+        <p></p>
+
+    </div>
+    <div class="content">
+        <h2> Send your email, I'll contact you back as soon as possible. </h2>
+        <form id="emailForm" action="mailto:mydearprojects@gmail.com" method="POST" enctype="text/plain">
+        <p> Let me know your name please: </p>
+        <input classe="emailBox" type="text" name="Name">
+        <p>Your email:</p>
+        <input classe="emailBox" type="text" name="Email">
+        <p>And write your comment down bellow.</p>
+        <textarea id="commentTextBox" form="emailForm" classe="emailBox" type="textarea" name="Comment" cols="100" rows="10"></textarea><br>
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+        </form>
+    </div>
+
+    <a href="index.html">Take me back please.</a>
+
+
+</body>
+
+</html>

@@ -12,12 +12,13 @@
 </head>
 <body class="lightMode">
     <div class= "header">
-        <div id="darkmodeCheckbox">
-            <input type="checkbox" id="light/dark" onclick="changeTheme()">
-            <span>lightMode</span>
+        <input type="button" value="Contact" size="10" onclick="location.href='SendEmail.html'">
+        <div id="darkModeCheckbox">
+            <input type="checkbox" id="light_dark" onclick="changeTheme()">
+            <span id="colorMode">lightMode enabled</span>
         </div>
     </div>
-    <div id="intro">
+    <div id="intro" class="content">
         <h1>Who am I?</h1>
         <p>
         I'm a student of software engennering trying to improve my developer skills. 
@@ -35,42 +36,44 @@
             If you want to try them out you're welcome to make your own versions of this projects and text me with some tips to improve my work or of course ask me your doubts.
         </p>
     </div>
+    <div class="content">
 
-    <div id = "LAP">
-        <h3>Programming Languages and Environments</h3>
-        <h4>Linguagens e Ambientes de Programação (PT)</h4>
-        <p>It was in this class that I first started programing in html and javascript. 
-            I had some base knowledge, also because of projects I started, however it was here I learned the most about it also because of the projects that were more interesting than my previous.
-        </p>
-        <a href="LAP/LodeRunner.html">Just click to read more about it.</a>
-        <input id="LAPStartGame" TYPE="button" VALUE="START" SIZE=10 onmousedown="onLoad()">
-        <FORM NAME="form1">
-            <p id='level'>Level 1</p>
-            <div>
-                <p id="gameExplanation">This minigame consists on moving the player, while avoiding it's enemies in order to collect all
-                    the gold and unlock a stair to the next level. Altough it's simplicity, I had a lot of fun programing it because it
-                    was the first time I could write some code and immediately see the result. It is a bit buggy but, as long as you
-                    don't die too much it's truly easy to pass throw every level.
-                </p>
-                <canvas id="canvas1" width="504" height="272">
-                    Your browser doesn't support the HTML5 CANVAS tag. 
-                </canvas>
-            </div>
-            <p id='info'></p>
-            <div id= "LAPGameDownButtons">
-                <input TYPE="button" NAME="button1" VALUE="Reset Level" SIZE=10 OnClick="b1()">
-                <input TYPE="button" NAME="button2" VALUE="Pause" SIZE=10 OnClick="b2()">
-                <input TYPE="button" NAME="button3" VALUE="Restart Game" SIZE=10 OnClick="b3()">
-                <input TYPE="button" VALUE="Time Supreme" SIZE=10 OnClick="timeSupreme()">
-                <input TYPE="button" VALUE="ENDGAME" SIZE=10 OnClick="endGameEarlier()">
-            </div>
-        </FORM>
         
+        <div id = "LAP">
+            <h3>Programming Languages and Environments</h3>
+            <h4>Linguagens e Ambientes de Programação (PT)</h4>
+            <p>It was in this class that I first started programing in html and javascript. 
+                I had some base knowledge, also because of projects I started, however it was here I learned the most about it also because of the projects that were more interesting than my previous.
+            </p>
+            <a href="LAP/LodeRunner.html">Just click to read more about it.</a>
+            <input id="LAPStartGame" TYPE="button" VALUE="START" SIZE=10 onmousedown="onLoad()">
+            <FORM NAME="form1">
+                <p id='level'>Level 1</p>
+                <div>
+                    <p id="gameExplanation">This minigame consists on moving the player, while avoiding it's enemies in order to collect all
+                        the gold and unlock a stair to the next level. Altough it's simplicity, I had a lot of fun programing it because it
+                        was the first time I could write some code and immediately see the result. It is a bit buggy but, as long as you
+                        don't die too much it's truly easy to pass throw every level.
+                    </p>
+                    <canvas id="canvas1" width="504" height="272">
+                        Your browser doesn't support the HTML5 CANVAS tag. 
+                    </canvas>
+                </div>
+                <p id='info'></p>
+                <div id= "LAPGameDownButtons">
+                    <input TYPE="button" NAME="button1" VALUE="Reset Level" SIZE=10 OnClick="b1()">
+                    <input TYPE="button" NAME="button2" VALUE="Pause" SIZE=10 OnClick="b2()">
+                    <input TYPE="button" NAME="button3" VALUE="Restart Game" SIZE=10 OnClick="b3()">
+                    <input TYPE="button" VALUE="Time Supreme" SIZE=10 OnClick="timeSupreme()">
+                    <input TYPE="button" VALUE="ENDGAME" SIZE=10 OnClick="endGameEarlier()">
+                </div>
+            </FORM>
+            
+        </div>
     </div>
 
 
-
-    <div id="lastNotes">
+    <div id="lastNotes" class="footer">
         <p>Most of this projects were built with my collegue. I did NOT do them alone, it's not impossible what so ever to do them on your own but I can't take all the credits for it.</p>
     </div>
     
