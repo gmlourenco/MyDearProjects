@@ -24,10 +24,18 @@ canvas {
     top: 0;
     left: 0;
     height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
     
     background: grey;
 }
+
+.light_dark {
+    float: right;
+    padding-right: 10px;
+}
+
 .content{
     margin: 10%;
     width: 80%;
@@ -76,3 +84,17 @@ canvas {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+.backHome {
+    color:lightseagreen;
+    
+}

@@ -14,12 +14,15 @@
         <input type="button" value="Contact" size="10" onclick="location.href='SendEmail.html'">
         <input type="button" value="Donate" size="10" onclick="location.href='Donations.html'">
 
-        <div id="darkModeCheckbox">
-            <input type="checkbox" id="light_dark" onclick="changeTheme()">
+        <div class="light_dark" id="darkModeCheckbox">
+            <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
             <span id="colorMode">lightMode enabled</span>
         </div>
     </div>
-    <div>
+    <div class="pay">
+        <h2>First of all thank, you for your support,</h2> 
+        <p>I'll do my best to accomplish the expectations and update this website, adding new features and new projects. I hope you've had fun programing your own versions of this projects, and hopefully learned as much as I did with this page.
+        </p>
         <form action="https://www.paypal.com/donate" method="post" target="_top">
             <input type="hidden" name="hosted_button_id" value="4BMSJN2W7Q4T4" />
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit"
@@ -29,8 +32,8 @@
 
 
     </div>
-
-    <a href="index.html">Take me back please.</a>
+    <br>
+    <a class="backHome" href="index.html">Take me back please.</a>
     
     
 </body>

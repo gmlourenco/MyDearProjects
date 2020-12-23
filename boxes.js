@@ -1,6 +1,6 @@
 
 function changeTheme(){
-    let checkbox = document.getElementById("light_dark");
+    let checkbox = document.getElementById("light_dark_switch");
 
     if (checkbox.checked == true) {
         let aux = document.getElementsByClassName("lightMode");
