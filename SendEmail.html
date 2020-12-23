@@ -10,12 +10,13 @@
 </head>
 
 <body class="lightMode">
-    <div class="header">
-        <input type="button" value="Contact" size="10" onclick="location.href='SendEmail.html'">
-        <input type="button" value="Donate" size="10" onclick="location.href='Donations.html'">
-
-        <div id="darkModeCheckbox">
-            <input type="checkbox" id="light_dark" onclick="changeTheme()">
+    <div class="header topNavBar">
+        
+        <a class="navLink" href="SendEmail.html">Contact</a>
+        <a class="navLink" href="Donations.html">Donate</a>
+    
+        <div class="light_dark" id="darkModeCheckbox">
+            <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
             <span id="colorMode">lightMode enabled</span>
         </div>
     </div>
@@ -38,7 +39,7 @@
         </form>
     </div>
 
-    <a class="backHome" href="index.html">Take me back please.</a>
+    <a class="backHome light_dark" href="index.html">Take me back please.</a>
 
 
 </body>

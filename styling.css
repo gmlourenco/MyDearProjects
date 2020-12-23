@@ -3,8 +3,9 @@ body {
     padding: 0%;
     border: 0%;
     font-family: courier;
-    text-align:center;
+    text-align: justify;
 }
+
 canvas {
     background-color: white;
     display: block;
@@ -24,16 +25,34 @@ canvas {
     top: 0;
     left: 0;
     height: fit-content;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /*
+    padding-top: 20px;
+    padding-bottom: 20px;
+    */
     width: 100%;
+    overflow: hidden;
     
-    background: grey;
+}
+.topNavBar {
+    background-color: grey;
+    
+}
+
+.topNavBar .navLink{ 
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topNavBar .navLink:hover {
+    background-color: aqua;
 }
 
 .light_dark {
     float: right;
-    padding-right: 10px;
 }
 
 .content{
@@ -72,7 +91,6 @@ canvas {
     margin-top: -0px;
     margin-left: 15%;
     left: 510px;
-    /*border: 1px solid rgb(194, 69, 11);*/
     padding: 10px;
     line-height: 18.40px;
 }
@@ -95,6 +113,11 @@ canvas {
 
 
 .backHome {
-    color:lightseagreen;
-    
+    padding: 20px 20px;
+    text-decoration: none;
+    background-color: darkgrey;
+}
+
+.backHome:hover {
+    background-color: gray;
 }

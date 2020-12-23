@@ -1,24 +1,26 @@
 
+
+
+
+
 function changeTheme(){
     let checkbox = document.getElementById("light_dark_switch");
 
     if (checkbox.checked == true) {
         let aux = document.getElementsByClassName("lightMode");
-        console.log(aux[0].classList)
         changeClass(aux, "lightMode", "darkMode");
         let out = document.getElementById("colorMode");
         out.innerHTML = 'darkMode enabled';
 
     } else {
         var aux = document.getElementsByClassName("darkMode");
-        console.log(aux[0].classList)
         changeClass(aux, "darkMode", "lightMode");
         let out = document.getElementById("colorMode");
         out.innerHTML = 'lightMode enabled';
     }
 }
 function changeClass(vec, last, actual){
-    console.log(document.getElementsByClassName("lightMode"));
+    //console.log(document.getElementsByClassName("lightMode"));
     //Array.prototype.forEach.call(vec, obj => {
     for (const obj of vec) {
         obj.classList.remove(last);
