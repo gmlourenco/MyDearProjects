@@ -1,8 +1,6 @@
 
 
 
-
-
 function changeTheme(){
     let checkbox = document.getElementById("light_dark_switch");
 

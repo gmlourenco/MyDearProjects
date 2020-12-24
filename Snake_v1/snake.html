@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Software Engineering student's Projects/snake-v1</title>
+    <link rel="stylesheet" href="../styling.css">
+    <script TYPE="text/javascript" src="../boxes.js"></script>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    void main(){
+        gl_Position = vPosition;
+    
+    }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    uniform vec4 color;
+    void main() {
+        gl_FragColor = color; //vec4(0.0,1.0,0.0,1.0);
+    }
+    </script>
+    <script type="text/javascript" src="../CGI/Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../CGI/Common/initShaders.js"></script>
+    <script type="text/javascript" src="../CGI/Common/MV.js"></script>
+
+    <script TYPE="text/javascript" src="snakeV1.js"></script>
+
+
+</head>
+
+<body class="lightMode">
+    <div class="header topNavBar">
+        <div class="dropdown">
+            <button class="dropdownMain" onclick="document.URL='index.html'">
+                Home
+            </button>
+
+            <div class="dropdown_content">
+                <a href="index.html#introduction">Intro</a>
+                <a href="index.html#LAPstuff">LAP</a>
+            </div>
+
+        </div>
+        <a class="navLink" href="SendEmail.html">Contact</a>
+        <a class="navLink" href="Donations.html">Donate</a>
+
+        <div class="light_dark" id="darkModeCheckbox">
+            <span id="colorMode">lightMode enabled</span>
+            <label class="switch">
+                <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    
+    <div id="snakeV1">
+        <input type="button" value="open" onclick="init()">
+        <canvas id="snake-canvas" width="900" height="600">
+            Oops... your browser doesn't support the HTML5 canvas element"
+        </canvas>
+
+
+
+
+    </div>
+
+    <br>
+    <a class="backHome" onclick="lastPage()">Take me back please</a>
+
+
+</body>
+
+</html>
