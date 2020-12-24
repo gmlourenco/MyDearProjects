@@ -1,0 +1,271 @@
+<!--- 
+    Projeto 3, 
+    Joana Soares Faria 55754
+    Gonçalo Martins Lourenço 55780  
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <script id="default-vertex" type="x-shader/x-vertex">
+        uniform mat4 mView;
+        uniform mat4 mModel;
+        uniform mat4 mProjection;
+
+        uniform int p;
+        uniform int illumination1;
+        uniform vec4 lightPosition;
+        uniform mat4 mNormals;
+        uniform mat4 mViewNormals;
+        varying vec3 fLight;
+        varying vec3 fViewer;
+        varying vec3 fPosition;
+
+
+        attribute vec4 vPosition;
+        attribute vec4 vNormal;
+
+        uniform vec4 aa;
+
+        varying vec3 fNormal;
+
+        void main() {
+            if(illumination1<=0) {
+                fNormal = vNormal.xyz;
+            } else {
+                vec3 posC = (mView*mModel*vPosition).xyz;
+                fNormal = (mNormals*vNormal).xyz;
+
+                if(lightPosition.w==0.0) {
+                    fLight = normalize((mViewNormals*lightPosition).xyz);
+                }else {
+                    fLight = normalize((mView*lightPosition).xyz-posC);
+                }
+                if(p==2) {
+                    fViewer = -fPosition;
+
+                } else {
+                    fViewer = vec3(0,0,1);
+                }
+                 
+
+            }
+            gl_Position = mProjection * mView * mModel * vPosition;
+
+        }
+    </script>
+
+    <script id="default-fragment" type="x-shader/x-fragment">
+        precision highp float;
+
+        uniform int illumination2;
+        varying vec3 fPosition;
+        uniform vec3 materialAmb;
+        vec3 materialDif = materialAmb;
+        uniform vec3 materialSpe;
+        uniform float shininess;
+        const vec3 lightAmb = vec3(0.2,0.2,0.2);
+        uniform vec3 lightDif;
+        const vec3 lightSpe = vec3(1.0, 1.0, 1.0);
+        varying vec3 fLight;
+        varying vec3 fViewer;
+
+        vec3 ambientColor =lightAmb*materialAmb;
+        vec3 diffuseColor = lightDif*materialDif;
+        vec3 specularColor = lightSpe*materialSpe;
+
+        varying vec3 fNormal;
+
+        void main() {
+            if(illumination2<=0) {
+                gl_FragColor = vec4(fNormal, 1.0);
+            } else {
+                vec3 L = normalize(fLight);
+                vec3 V = normalize(fViewer);
+                vec3 N = normalize(fNormal);
+                vec3 H = normalize(L+V);
+
+                float diffuseFactor = max(dot(L,N), 0.0);
+                vec3 diffuse = diffuseFactor*diffuseColor;
+                
+                float specularFactor = pow(max(dot(N,H), 0.0), shininess);
+                vec3 specular = specularFactor* specularColor;
+
+                if(dot(L,N)<0.0) {
+                    specular = vec3(0.0,0.0,0.0);
+                }
+                gl_FragColor = vec4(ambientColor+diffuse+specular, 1.0);
+            }    
+        }
+    </script>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="../Common/sphere.js"></script>
+    <script type="text/javascript" src="../Common/cube.js"></script>
+    <script type="text/javascript" src="../Common/cylinder.js"></script>
+    <script type="text/javascript" src="../Common/torus.js"></script>
+    <script type="text/javascript" src="paraboloid2.js"></script>
+    <script type="text/javascript" src="projections.js"></script>
+</head>
+
+
+<body style="margin: 0px">
+    <div>
+        <canvas id="gl-canvas" width="100%" height="70%">
+            Ooops! Your browser doen't support WebGL!
+        </canvas>
+    </div>
+    <div style="float: left;padding: 5px; width: 15%; height: 110px;">
+        <p style="margin: 2px;">Shape to draw: </p>
+        <select id="objects" size="5" value="4">
+            <option value="0">Cube</option>
+            <option value="1">Sphere</option>
+            <option value="2">Torus</option>
+            <option value="3">Cylinder</option>
+            <option value="4">Paraboloid</option>
+        </select>
+    </div>
+
+    <div style="float: left;padding: 5px; width: 15%; height: 110px;">
+        <p style="margin: 2px;">Projection:</p>
+        <select id="projection" size="3" value="1">
+            <option value="0">Orthogonal</option>
+            <option value="1">Axonometric</option>
+            <option value="2">Perspective</option>
+        </select>
+    </div>
+
+    <div id="axonometric_menu"
+        style="float: left;padding: 5px; width: 15%; height: 110px;">
+        <p style="margin: 2px;">Axonometric: </p>
+        <select id="axonometricOptions" size="4" value="1">
+            <option value="0">Isometric</option>
+            <option value="1">Diametric</option>
+            <option value="2">Trimetric</option>
+            <option value="3">Free</option>
+        </select>
+    </div>
+    <div id="ortho_menu"
+        style="float: left;padding: 5px; width: 20%; height: 110px;">
+        <o style="margin: 2px;">Orthogonal: </o>
+        <select id="orthogonalOptions" size="3" value="1">
+            <option value="0">Alçado Principal</option>
+            <option value="1">Planta</option>
+            <option value="2">Alçado Lateral Direito</option>
+        </select>
+    </div>
+    <div>
+        <div id="perspective"
+            style="float: left;padding: 5px; width: 20%; height: 110px;">
+            <span>D: </span>
+            <input id="distance" type="range" min="0.04" value="5" max="10"
+                step="0.05">
+            <span id="dValue">5</span>
+        </div>
+        <div id="free_axonometric"
+            style="float: left;padding: 5; width: 20%; height: 110px;">
+            <span>A: </span><input id="aSlider" type="range" min="0" value="30"
+                max="90" step="1">
+            <span id="aValue">30</span>
+            <p></p>
+            <span>B: </span><input id="bSlider" type="range" min="0" value="30"
+                max="90" step="1">
+            <span id="bValue">30</span>
+        </div>
+        <div style="float: left; padding: 5px; width: 20%; height: 110px;">
+            <p style="margin: 0px;">Z-Buffer (Z):
+                <span id="z_buffer">False</span>
+            </p>
+
+            <p style="margin: 0px;">Culling (B):
+                <span id="culling">False</span>
+            </p>
+
+            <p style="margin: 0px;">Filling (W or F):
+                <span id="filled">WIRE</span>
+            </p>
+            <p style="margin: 0px;">Zoom:
+                <span id="zoom">100%</span>
+            </p>
+        </div>
+    </div>
+    <div>
+        <p style="float: left; width: 100%; margin: 0px;">Illumination</p>
+        <div style="float: left;padding: 5px; width: 20%;">
+            <select id="light" size="3" value="0">
+                <option value="0">Desligado</option>
+                <option value="1">Pontual Light</option>
+                <option value="2">Direction Light</option>
+            </select>
+        </div>
+
+        <div id="light_pos" style="float: left;padding: 5px; width: 20%;">
+            <p style="margin: 0px;">Position/Direction:</p>
+            <span>X: </span>
+            <input id="x_pos" type="range" min="-1" value="0.5" max="1" step="0.1">
+            <span id="x_value">0.5</span>
+            <p style="margin: 0px;"></p>
+            <span>Y: </span>
+            <input id="y_pos" type="range" min="-1" value="1" max="1" step="0.1">
+            <span id="y_value">1</span>
+            <p style="margin: 0px;"></p>
+            <span>Z: </span>
+            <input id="z_pos" type="range" min="-1" value="1" max="1" step="0.1">
+            <span id="z_value">1</span>
+        </div>
+        <div id="light_color" style="float: left; padding: 5px; width: 20%;">
+            <p style="margin: 0px;">Color:</p>
+            <span>R: </span>
+            <input id="r" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="r_value">1</span>
+            <p style="margin: 0px;"></p>
+            <span>G: </span>
+            <input id="g" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="g_value">1</span>
+            <p style="margin: 0px;"></p>
+            <span>B: </span>
+            <input id="b" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="b_value">1</span>
+        </div>
+    </div>
+    <div id="material">
+        <p style="float: left; width: 100%; margin: 0px;">Material</p>
+        <div id="ka" style="float: left; padding: 5px; width: 20%;">
+            <p style="margin: 0px;">Ka:</p>
+            <span>R: </span>
+            <input id="r_ka" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="r_ka_value">1</span>
+            <p style="margin: 0px;"></p>
+            <span>G: </span>
+            <input id="g_ka" type="range" min="0" value="0" max="1" step="0.1">
+            <span id="g_ka_value">0</span>
+            <p style="margin: 0px;"></p>
+            <span>B: </span>
+            <input id="b_ka" type="range" min="0" value="0" max="1" step="0.1">
+            <span id="b_ka_value">0</span>
+        </div>
+        <div id="ks" style="float: left; padding: 5px; width: 20%;">
+            <p style="margin: 0px;">Ks:</p>
+            <span>R: </span>
+            <input id="r_ks" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="r_ks_value">1</span>
+            <p style="margin: 0px;"></p>
+            <span>G: </span>
+            <input id="g_ks" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="g_ks_value">1</span>
+            <p style="margin: 0px;"></p>
+            <span>B: </span>
+            <input id="b_ks" type="range" min="0" value="1" max="1" step="0.1">
+            <span id="b_ks_value">1</span>
+        </div>
+        <div style="float: left;padding: 5px; width: 20%;">
+            <p style="margin: 0px;">Shininess:</p>
+            <input id="n" type="range" min="1" value="6" max="20" step="1">
+            <span id="n_value">6</span>
+        </div>
+    </div>
+</body>
+
+</html>

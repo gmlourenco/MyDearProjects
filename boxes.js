@@ -38,3 +38,8 @@ function changeClass(vec, last, actual){
 
 
 
+
+function lastPage(){
+    return window.history.back();
+}
+

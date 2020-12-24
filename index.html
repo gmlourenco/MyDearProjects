@@ -11,15 +11,31 @@
     <script TYPE="text/javascript" src="LAP/LodeRunner.js"></script>
 </head>
 <body class="lightMode">
-    <div class="header">
-        <input type="button" value="Contact" size="10" onclick="location.href='SendEmail.html'">
-        <input type="button" value="Donate" size="10" onclick="location.href='Donations.html'">
+    <div class="header topNavBar">
+        <div class="dropdown">
+            <button class="dropdownMain" onclick="document.URL='index.html'">
+                Home
+            </button>
+
+            <div class="dropdown_content">
+                <a href="#introduction">Intro</a>
+                <a href="#LAPstuff">LAP</a>
+            </div>
+        
+        </div>
+        <a class="navLink" href="SendEmail.html">Contact</a>
+        <a class="navLink" href="Donations.html">Donate</a>
     
         <div class="light_dark" id="darkModeCheckbox">
-            <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
             <span id="colorMode">lightMode enabled</span>
+            <label class="switch">
+                <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
+
+    <a name="introduction"></a>
     <div id="intro" class="content">
         <h1>Who am I?</h1>
         <p>
@@ -40,7 +56,7 @@
     </div>
     <div class="content">
 
-        
+        <a name="LAPstuff"></a>
         <div id = "LAP">
             <h3>Programming Languages and Environments</h3>
             <h4>Linguagens e Ambientes de Programação (PT)</h4>
@@ -72,6 +88,28 @@
             </FORM>
             
         </div>
+
+
+        <a name="CGIstuff"></a>
+        <div id="CGI">
+            <h3>Graphical Computation and Interfaces</h3>
+            <h4>Computação Gráfica e Interfaces (PT)</h4>
+            <p>
+                On the first semester of the third year, I had CGI, here we were introduced to webgl, we learned a lot from how webgl works to world coordinates, lights coordinates and camera coordinates. The following projects were done during the semester as a way of consolidating and evaluating knowledge.
+            </p>
+            <div id="osciloscope">
+
+                
+            </div>
+
+
+
+        </div>
+
+
+
+
+
     </div>
 
 

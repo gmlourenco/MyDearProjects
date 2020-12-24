@@ -1,0 +1,9 @@
+/**
+ * Projeto 1 CGI - Osciloscópio
+ * Gonçalo Loureço nº55780
+ * Joana Faria nº55754
+ */
+
+Venho informar que a tecla "b" tem a função de travão.
+
+A câmara desloca-se em movimentos de "z", ou seja, depois de virar-mos, as rodas.

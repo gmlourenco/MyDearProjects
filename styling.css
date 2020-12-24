@@ -33,8 +33,9 @@ canvas {
     overflow: hidden;
     
 }
+
 .topNavBar {
-    background-color: grey;
+    background-color: rgb(100, 100, 100);
     
 }
 
@@ -42,18 +43,150 @@ canvas {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 12px 12px;
   text-decoration: none;
   font-size: 17px;
 }
 
-.topNavBar .navLink:hover {
-    background-color: aqua;
+.topNavBar .navLink:hover,
+.dropdown:hover .dropdownMain  {
+    background-color: rgb(0, 80, 0);
 }
+
+.topNavBar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    min-width: 100px;
+
+}
+
+.dropdown .dropdownMain {
+    min-width: 100px;
+
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+
+.dropdown_content {
+    display: none;
+    background-color: rgb(120, 120, 120);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown_content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown_content a:hover {
+    background-color: #ddd;
+    
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+
 
 .light_dark {
     float: right;
+    padding: 10px 10px 10px 0px;
+
 }
+
+/** switch */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    
+    
+}
+
+.switch input {
+    /*opacity: 0;*/
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(51, 50, 50);
+    -webkit-transition: .4s;
+    transition: .4s;
+
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+input:checked+.slider {
+    background-color: green;
+}
+
+/**/
+input:focus+.slider {
+    box-shadow: 0 0 3px black;
+
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 25px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
 
 .content{
     margin: 10%;
@@ -61,10 +194,11 @@ canvas {
 
 }
 
+/*
 #LAP {
     height: 100000000 px;
 }
-
+*/
 #LAPStartGame {
     display: block;
 }
@@ -113,11 +247,14 @@ canvas {
 
 
 .backHome {
-    padding: 20px 20px;
+    cursor: pointer;
+    padding: 10px 10px;
     text-decoration: none;
-    background-color: darkgrey;
+    color: white;
+    background-color: rgb(88, 87, 87);
+    float: left;
+
 }
 
-.backHome:hover {
-    background-color: gray;
-}
+
+

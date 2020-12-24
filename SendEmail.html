@@ -11,20 +11,29 @@
 
 <body class="lightMode">
     <div class="header topNavBar">
-        
+        <div class="dropdown">
+            <button class="dropdownMain" onclick="document.URL='index.html'">
+                Home
+            </button>
+    
+            <div class="dropdown_content">
+                <a href="index.html#introduction">Intro</a>
+                <a href="index.html#LAPstuff">LAP</a>
+            </div>
+    
+        </div>
         <a class="navLink" href="SendEmail.html">Contact</a>
         <a class="navLink" href="Donations.html">Donate</a>
     
         <div class="light_dark" id="darkModeCheckbox">
-            <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
             <span id="colorMode">lightMode enabled</span>
+            <label class="switch">
+                <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
-    <div>
-
-        <p></p>
-
-    </div>
+    
     <div class="content">
         <h2> Send your email, I'll contact you back as soon as possible. </h2>
         <form id="emailForm" action="mailto:mydearprojects@gmail.com" method="POST" enctype="text/plain">
@@ -39,7 +48,7 @@
         </form>
     </div>
 
-    <a class="backHome light_dark" href="index.html">Take me back please.</a>
+    <a class="backHome" onclick="lastPage()">Take me back please</a>
 
 
 </body>
