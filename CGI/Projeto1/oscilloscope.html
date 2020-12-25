@@ -9,13 +9,13 @@
 
 <head>
     <!---GRID-->
-    <script id="gridVertex-shader" type="x-shader/x-vertex">
+    <script id="oscilloscopeGridVertex-shader" type="x-shader/x-vertex">
         attribute vec4 vPosition;
         void main(){
             gl_Position = vPosition;
         }
     </script>
-    <script id="gridFragment-shader" type="x-shader/x-fragment">
+    <script id="oscilloscopeGridFragment-shader" type="x-shader/x-fragment">
           precision mediump float; 
           void main() {
               gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
@@ -23,7 +23,7 @@
     </script>
 
     <!---FUNCTIONS-->
-    <script id="vertex-shader" type="x-shader/x-vertex">
+    <script id="oscilloscopeVertex-shader" type="x-shader/x-vertex">
         attribute float vTimeSample;
         uniform int xFunc;
         uniform int yFunc;
@@ -81,7 +81,7 @@
             gl_Position = vec4(x,y, 0.0, 1.0);
         }
     </script>
-    <script id="fragment-shader" type="x-shader/x-fragment">
+    <script id="oscilloscopeFragment-shader" type="x-shader/x-fragment">
       precision mediump float; 
       uniform vec4 color;
       void main() {
@@ -93,6 +93,8 @@
     <script type="text/javascript" src="../Common/initShaders.js"></script>
     <script type="text/javascript" src="../Common/MV.js"></script>
     <script type="text/javascript" src="oscilloscope.js"></script>
+
+    <script type="text/javascript" src="../../boxes.js"></script>
 </head>
 
 <body>
@@ -145,6 +147,8 @@
             <option value="7">Sustenido</option>
         </select>
     </div>
+
+    <a style="cursor: pointer; color:white; background-color: rgb(88, 87, 87); padding: 10px 10px" class="backHome" onclick="lastPage()">Take me back please</a>
 
 </body>
 

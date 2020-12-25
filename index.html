@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Software Engineering student's Projects</title>
 
@@ -10,6 +11,7 @@
     <script TYPE="text/javascript" src="LAP/LodeRunner0.js"></script>
     <script TYPE="text/javascript" src="LAP/LodeRunner.js"></script>
 </head>
+
 <body class="lightMode">
     <div class="header topNavBar">
         <div class="dropdown">
@@ -21,11 +23,11 @@
                 <a href="#introduction">Intro</a>
                 <a href="#LAPstuff">LAP</a>
             </div>
-        
+
         </div>
         <a class="navLink" href="SendEmail.html">Contact</a>
         <a class="navLink" href="Donations.html">Donate</a>
-    
+
         <div class="light_dark" id="darkModeCheckbox">
             <span id="colorMode">lightMode enabled</span>
             <label class="switch">
@@ -35,50 +37,87 @@
         </div>
     </div>
 
+    <br>
+
+    <div class="topIindex">
+        <div class="dropdown">
+            <button class="dropdownMain">
+                School Content:
+            </button>
+
+            <div class="dropdown_content">
+                <a href="#LAPstuff">LAP</a>
+                <a href="#CGIstuff">CGI</a>
+            </div>
+
+        </div>
+        <div class="dropdown">
+            <button class="dropdownMain">
+                MyDearCreations
+            </button>
+
+            <div class="dropdown_content">
+                <a href="#introduction">Snake_V1</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
     <a name="introduction"></a>
     <div id="intro" class="content">
         <h1>Who am I?</h1>
         <p>
-        I'm a student of software engennering trying to improve my developer skills. 
-        If you like my work and want to contact me I'll leave my email below.
+            I'm a student of software engennering trying to improve my developer skills.
+            If you like my work and want to contact me I'll leave my email below.
         </p>
-        
+
         <h2>Why?</h2>
         <p>
-        This website was built with the intention of perfecting some skills like programing with html, javascript and css.      
+            This website was built with the intention of perfecting some skills like programing with html, javascript
+            and css.
         </p>
 
         <h2>What will I find in this website?</h2>
-        <p>Well... This question is harder to give an answer to. 
-            My website won't have any expert knowledge, however, I'll resume my thoughts about some projects I made, and I'll include some explanation about how to do them. 
-            If you want to try them out you're welcome to make your own versions of this projects and text me with some tips to improve my work or of course ask me your doubts.
+        <p>Well... This question is harder to give an answer to.
+            My website won't have any expert knowledge, however, I'll resume my thoughts about some projects I made, and
+            I'll include some explanation about how to do them.
+            If you want to try them out you're welcome to make your own versions of this projects and text me with some
+            tips to improve my work or of course ask me your doubts.
         </p>
     </div>
-    <div class="content">
+
+    <div class="SchoolContent content">
 
         <a name="LAPstuff"></a>
-        <div id = "LAP">
+        <div id="LAP">
             <h3>Programming Languages and Environments</h3>
             <h4>Linguagens e Ambientes de Programação (PT)</h4>
-            <p>It was in this class that I first started programing in html and javascript. 
-                I had some base knowledge, also because of projects I started, however it was here I learned the most about it also because of the projects that were more interesting than my previous.
+            <p>It was in this class that I first started programing in html and javascript.
+                I had some base knowledge, also because of projects I started, however it was here I learned the most
+                about it also because of the projects that were more interesting than my previous.
             </p>
             <a href="LAP/LodeRunner.html">Just click to read more about it.</a>
             <input id="LAPStartGame" TYPE="button" VALUE="START" SIZE=10 onmousedown="onLoad()">
             <FORM NAME="form1">
                 <p id='level'>Level 1</p>
                 <div>
-                    <p id="gameExplanation">This minigame consists on moving the player, while avoiding it's enemies in order to collect all
-                        the gold and unlock a stair to the next level. Altough it's simplicity, I had a lot of fun programing it because it
-                        was the first time I could write some code and immediately see the result. It is a bit buggy but, as long as you
+                    <p id="gameExplanation">This minigame consists on moving the player, while avoiding it's enemies in
+                        order to collect all
+                        the gold and unlock a stair to the next level. Altough it's simplicity, I had a lot of fun
+                        programing it because it
+                        was the first time I could write some code and immediately see the result. It is a bit buggy
+                        but, as long as you
                         don't die too much it's truly easy to pass throw every level.
                     </p>
                     <canvas id="canvas1" width="504" height="272">
-                        Your browser doesn't support the HTML5 CANVAS tag. 
+                        Your browser doesn't support the HTML5 CANVAS tag.
                     </canvas>
                 </div>
                 <p id='info'></p>
-                <div id= "LAPGameDownButtons">
+                <div id="LAPGameDownButtons">
                     <input TYPE="button" NAME="button1" VALUE="Reset Level" SIZE=10 OnClick="b1()">
                     <input TYPE="button" NAME="button2" VALUE="Pause" SIZE=10 OnClick="b2()">
                     <input TYPE="button" NAME="button3" VALUE="Restart Game" SIZE=10 OnClick="b3()">
@@ -86,20 +125,38 @@
                     <input TYPE="button" VALUE="ENDGAME" SIZE=10 OnClick="endGameEarlier()">
                 </div>
             </FORM>
-            
+            <h6 class="controls">Controls:</h6>
+            <p class="controls">
+                Move either using the arrows or, as I recommend: (i,j,k,l) keys to move and press space to shoot.
+            </p>
         </div>
 
 
         <a name="CGIstuff"></a>
-        <div id="CGI">
+        <div class="innerContent" id="CGI">
             <h3>Graphical Computation and Interfaces</h3>
             <h4>Computação Gráfica e Interfaces (PT)</h4>
             <p>
-                On the first semester of the third year, I had CGI, here we were introduced to webgl, we learned a lot from how webgl works to world coordinates, lights coordinates and camera coordinates. The following projects were done during the semester as a way of consolidating and evaluating knowledge.
+                On the first semester of the third year, I had CGI, here we were introduced to webgl, we learned a lot
+                from how webgl works to world coordinates, lights coordinates and camera coordinates. The following
+                projects were done during the semester as a way of consolidating and evaluating knowledge.
             </p>
-            <div id="osciloscope">
 
-                
+            <div id="osciloscope">
+                <h5>Osciloscope</h5>
+                <p>
+                    This was our first real project in webgl, and, despite the lack of knowledge I think it turned out
+                    fine. As the name
+                    says we needed to build an oscilloscope to draw the functions that are selectable in the functions
+                    selection.
+                </p>
+                <p>
+                    The function is draw in real time, so the adjustable timescale adapts itself when you change it and
+                    the rest is a bit self-explanatory.
+                </p>
+                <a href="CGI/Projeto1/oscilloscope.html">Just click to read more about it.</a>
+
+
             </div>
 
 
@@ -113,9 +170,42 @@
     </div>
 
 
-    <div id="lastNotes" class="footer">
-        <p>Most of this projects were built with my collegue. I did NOT do them alone, it's not impossible what so ever to do them on your own but I can't take all the credits for it.</p>
+    <div class="SchoolContent lastNotes">
+        <p>Most of this projects were built with my collegue. I did NOT do them alone, it's not impossible what so ever
+            to do them on your own but I can't take all the credits for it.</p>
     </div>
-    
+
+    <div class="MyDearCreations">
+        <p>
+            The moment I started designing this website I started working on some new projects, it was time to finish
+            some. As
+            lots of other people I had started a bunch of project that I hadn't finished because of the most diverse
+            reasons.
+        </p>
+        <p>
+            If I wanted to be something more than another one, I was going to need to make a change, stop collecting
+            that much not so consolidated knowledge and start to work with the tools that I had.
+        </p>
+
+        <h3>Snake_V1</h3>
+        <p>
+            What could be a better first work than one of the most iconic games of all time? The snake.
+        </p>
+        <p>
+            This first snake version I made is in webgl. Honestly, I had no internet when I was writing it's code, so, I
+            could
+            only clarify my doubts on previous projects I had with me at the moment. And of course, what a better way to
+            start
+            than with some fresh knowledge right?
+        </p>
+        <p>
+            I was half way done, deciding and finishing are the real deals, so, I had to finish it as soon as I could, I
+            gave myself ax expiring date and so I started.
+        </p>
+
+
+    </div>
+
 </body>
+
 </html>

@@ -77,10 +77,17 @@ canvas {
     outline: none;
     color: white;
     padding: 14px 16px;
-    background-color: inherit;
+    background-color: darkgray;
     font-family: inherit;
     margin: 0;
+    float: center;
 }
+
+
+.topNavBar .dropdown .dropdownMain {
+    background-color: inherit;
+}
+
 
 
 .dropdown_content {
@@ -194,11 +201,10 @@ input:checked+.slider:before {
 
 }
 
-/*
-#LAP {
-    height: 100000000 px;
+.innerContent {
+    margin-top: 10%;
 }
-*/
+
 #LAPStartGame {
     display: block;
 }

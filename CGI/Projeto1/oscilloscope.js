@@ -113,8 +113,8 @@ window.onload = function init() {
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
     // Load shaders and initialize attribute buffers
-    gridProgram = initShaders(gl, "gridVertex-shader", "gridFragment-shader");
-    program = initShaders(gl, "vertex-shader", "fragment-shader");
+    gridProgram = initShaders(gl, "oscilloscopeGridVertex-shader", "oscilloscopeGridFragment-shader");
+    program = initShaders(gl, "oscilloscopeVertex-shader", "oscilloscopeFragment-shader");
 
     // Load the data into the GPU
     gridBufferId = gl.createBuffer();
