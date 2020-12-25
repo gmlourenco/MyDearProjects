@@ -91,10 +91,15 @@ canvas {
 
 
 .dropdown_content {
+    position: absolute;
     display: none;
     background-color: rgb(120, 120, 120);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+}
+
+.topNavBar .dropdown_content {
+    position: sticky;
 }
 
 .dropdown_content a {
@@ -250,7 +255,9 @@ input:checked+.slider:before {
 
 
 
-
+.lastNotes {
+    margin: 2%;
+}
 
 .backHome {
     cursor: pointer;
