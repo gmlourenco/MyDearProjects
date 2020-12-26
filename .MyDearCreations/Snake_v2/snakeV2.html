@@ -1,4 +1,3 @@
-
 <!--- 
     Projeto 2, Van
     Joana Soares Faria 55754
@@ -11,7 +10,7 @@
 
 </head>
 
-    <script id="snakeV2-vertex" type="x-shader/x-vertex">
+<script id="snakeV2-vertex" type="x-shader/x-vertex">
         uniform mat4 mModelView;
         uniform mat4 mProjection;
 
@@ -26,7 +25,7 @@
         }
     </script>
 
-    <script id="snakeV2-fragment" type="x-shader/x-fragment">
+<script id="snakeV2-fragment" type="x-shader/x-fragment">
         precision highp float;
         uniform vec4 color;
         uniform int fixedColor;
@@ -42,31 +41,54 @@
             
         }
     </script>
-    
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/webgl-utils.js"></script>
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/initShaders.js"></script>
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/MV.js"></script>
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/sphere.js"></script>
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/cube.js"></script>
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/cylinder.js"></script>
-    <script type="text/javascript" src="../../.SchoolContent/CGI/Common/torus.js"></script>
-    <script type="text/javascript" src="snakeV2.js"></script>
-    <script TYPE="text/javascript" src="../../boxes.js"></script>
-    <link rel="stylesheet" href="../../styling.css">
+
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/initShaders.js"></script>
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/MV.js"></script>
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/sphere.js"></script>
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/cube.js"></script>
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/cylinder.js"></script>
+<script type="text/javascript" src="../../.SchoolContent/CGI/Common/torus.js"></script>
+<script type="text/javascript" src="snakeV2.js"></script>
+<script TYPE="text/javascript" src="../../boxes.js"></script>
+<link rel="stylesheet" href="../../styling.css">
 
 
-<body style="margin: 0px">
-    <div>
+<body class="lightMode">
+    <div class="header topNavBar">
+        <div class="dropdown">
+            <button class="dropdownMain" onclick="document.URL='index.html'">
+                Home
+            </button>
+
+            <div class="dropdown_content">
+                <a href="index.html#introduction">Intro</a>
+                <a href="index.html#LAPstuff">LAP</a>
+            </div>
+
+        </div>
+        <a class="navLink" href="SendEmail.html">Contact</a>
+        <a class="navLink" href="Donations.html">Donate</a>
+
+        <div class="light_dark" id="darkModeCheckbox">
+            <span id="colorMode">lightMode enabled</span>
+            <label class="switch">
+                <input type="checkbox" id="light_dark_switch" onclick="changeTheme()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    <div style="padding: 0%; margin: 0%;">
         <canvas id="gl-canvas" width="100%" height="80%">
             Ooops! Your browser doen't support WebGL!
         </canvas>
-        
+
         <p style="display: inline-block;">Fruits eaten: </p>
         <span id="eaten">0</span>
     </div>
-    
+
     <br>
     <a class="backHome" onclick="lastPage()">Take me back please</a>
 </body>
+
 </html>
-    

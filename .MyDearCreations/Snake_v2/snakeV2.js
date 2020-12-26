@@ -42,7 +42,7 @@ const FLOOR = 'floor';
 const FLOOR_SIZE = 1;
 
 
-const WIDTH_PERCENTAGE = 1;
+const WIDTH_PERCENTAGE = 1.0;
 const HEIGHT_PERCENTAGE = 0.8;
 //TODO
 const TOP_VIEW = 1;
@@ -288,8 +288,8 @@ function drawScene() {
             drawFruits();
             //snake
             drawSnake();
-        popMatrix();
-    popMatrix();   
+        //popMatrix();
+    //popMatrix();   
 }
 
 
